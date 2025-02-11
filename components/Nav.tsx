@@ -9,8 +9,8 @@ export default function Nav() {
                                         <Image
                                                 src="/weblogo.png"
                                                 alt="big c logo"
-                                                width={130}
-                                                height={50}
+                                                width={120}
+                                                height={40}
                                         />
                                 </div>
                                 <div className="gap-5 hidden md:flex">
@@ -22,8 +22,8 @@ export default function Nav() {
                                 <Image
                                         src="/menu.png"
                                         alt="menu"
-                                        width={50}
-                                        height={50}
+                                        width={40}
+                                        height={40}
                                         className="md:hidden"
                                 />
                         </div>

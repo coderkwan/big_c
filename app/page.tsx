@@ -38,7 +38,7 @@ export default function Home() {
 
         return (
                 <div className="flex flex-col md:flex-row gap-[4rem justify-between gap-5 items-center my-[5rem]">
-                        <div className="  order-2 md:order-1 md:w-[50%] flex flex-col gap-4">
+                        <div className=" md:w-[50%] flex flex-col gap-4">
                                 <h1 className="text-3xl md:text-4xl font-bold">
                                         {titles[count]}
                                 </h1>
@@ -64,7 +64,7 @@ export default function Home() {
                                         </button>
                                 </div>
                         </div>
-                        <div className="order-1 md:order-2 w-full  md:w-[50%]  flex items-start justify-start md:justify-center">
+                        <div className=" w-full  md:w-[50%]  flex items-start justify-start md:justify-center">
                                 <img
                                         className="w-full md:w-auto md:max-h-[400px] "
                                         src={`/hero/${images[count_img]}`}
