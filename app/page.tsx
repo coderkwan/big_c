@@ -34,8 +34,8 @@ export default function Home() {
                                         solutions. From security uniforms and
                                         PPE to DTF, sublimation, and vinyl
                                         printing, we provide top-tier products
-                                        tailored to your needs. Whether you're a
-                                        business looking for professional
+                                        tailored to your needs. Whether you are
+                                        a business looking for professional
                                         uniforms or need custom branding for
                                         cars, fabrics, and promotional
                                         materials, we've got you covered.
