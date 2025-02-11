@@ -64,9 +64,9 @@ export default function Home() {
                                         </button>
                                 </div>
                         </div>
-                        <div className="order-1 md:order-2 w-full md:w-[50%]  flex items-start justify-start md:justify-center">
+                        <div className="order-1 md:order-2 w-full  md:w-[50%]  flex items-start justify-start md:justify-center">
                                 <img
-                                        className="w-full  md:max-h-[400px] "
+                                        className="w-full md:w-auto md:max-h-[400px] "
                                         src={`/hero/${images[count_img]}`}
                                         alt="printing"
                                 />
