@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 export default function Home() {
         const titles = [
                 "Premium Workwear, Safety Gear & Corporate Uniforms – Designed for Durability & Style",
