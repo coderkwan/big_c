@@ -38,7 +38,7 @@ export default function Home() {
                                         a business looking for professional
                                         uniforms or need custom branding for
                                         cars, fabrics, and promotional
-                                        materials, we've got you covered.
+                                        materials, we got you covered.
                                 </p>
                                 <div className="flex gap-4">
                                         <button className="bg-black text-slate-200 py-3 px-9 ">
