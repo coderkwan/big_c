@@ -56,7 +56,7 @@ export default function Home() {
             clearInterval(interval);
             clearInterval(interval_images);
         };
-    }, []);
+    }, [images.length, titles.length]);
 
     return (
         <main>
@@ -89,7 +89,7 @@ export default function Home() {
             <section className="my-[10rem] flex flex-col gap-4 items-center">
                 <div className="text-center mb-[3rem]">
                     <h2 className="text-4xl font-bold uppercase">What we do</h2>
-                    <p className="text-lg text-slate-600">We do stuff you'll never imagine</p>
+                    <p className="text-lg text-slate-600">We do stuff you will never imagine</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     <div className="flex flex-col justify-between px-6 pb-6 shadow-lg border border-slate-300 gap-5 ">
