@@ -229,7 +229,7 @@ export default function Home() {
                 <h3 className="uppercase text-3xl font-bold">Fast and Affordable Branding services</h3>
                 <p className="text-slate-300 max-w-[800px]">Get high-quality branding solutions that are both fast and budget-friendly. From custom prints to eye-catching signage, we deliver professional results with quick turnaround times. Elevate your brand without breaking the bank!</p>
                 <div>
-                    <button className="bg-yellow-500 text-slate-900 p-4 rounded-lg">Book Appointment</button>
+                    <button className="bg-orange-500 text-slate-100 p-4 rounded-lg">Book Appointment</button>
                 </div>
             </section>
         </main>

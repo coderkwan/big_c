@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export default function Footer() {
     return (
-        <div className="bg-yellow-500 text-slate-900 py-[4rem] flex flex-col items-center">
+        <div className="bg-orange-500 text-slate-100 py-[4rem] flex flex-col items-center">
             <div className="mx-auto w-full max-w-[1200px] border-b border-slate-800 pb-[2rem] flex flex-col md:flex-row items-center text-center md:text-left gap-[3rem] justify-between ">
                 <div>
                     <Image src='/biglogo.png' alt="big c printworks logo" width={200} height={100} />
