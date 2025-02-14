@@ -4,40 +4,54 @@ import {useEffect, useState} from "react";
 import Image from "next/image";
 
 export default function Home() {
+
     const titles = [
         "Signage Printing, Stockiest of signage materials",
         "Custom Branding & Printing: DTF, Sublimation, UV & Vinyl for Apparel",
         "Vihicle branding, Banners and Promotional Items",
         "Premium Workwear, Safety Gear & Corporate Uniforms",
     ];
+
     const images = [
         {
-            name: "Branding",
+            name: "Signage Printing",
             image: "1.png"
         },
         {
-            name: "Graphic design",
+            name: "Printing Materials",
             image: "2.png"
         },
         {
-            name: "Signage Materials",
+            name: "Large Format Printing",
             image: "3.png"
         },
         {
-            name: "Signage Printing",
+            name: "DTF Printing",
             image: "4.png"
         },
         {
-            name: "Road Signs",
+            name: "Stationary",
             image: "5.png"
         },
         {
-            name: "DTF",
+            name: "Work Wear",
             image: "6.png"
         },
         {
-            name: "Sublimation",
+            name: "Custom Branding",
             image: "7.png"
+        },
+        {
+            name: "Corporate Wear",
+            image: "8.png"
+        },
+        {
+            name: "UV Printing",
+            image: "9.png"
+        },
+        {
+            name: "3D Fabrication",
+            image: "10.webp"
         },
     ];
 
@@ -79,7 +93,7 @@ export default function Home() {
                 </div>
                 <div className="w-full p-4 bg-black md:w-[40%] flex flex-col items-center justify-start md:justify-center">
                     <img
-                        className="w-full  md:max-h-[400px] "
+                        className="w-full h-full md:max-h-[400px] "
                         src={`/hero/${images[count_img]["image"]}`}
                         alt="printing"
                     />
