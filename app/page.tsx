@@ -12,65 +12,17 @@ export default function Home() {
         "Premium Workwear, Safety Gear & Corporate Uniforms",
     ];
 
-    const images = [
-        {
-            name: "Signage Printing",
-            image: "1.png"
-        },
-        {
-            name: "Printing Materials",
-            image: "2.png"
-        },
-        {
-            name: "Large Format Printing",
-            image: "3.png"
-        },
-        {
-            name: "DTF Printing",
-            image: "4.png"
-        },
-        {
-            name: "Stationary",
-            image: "5.png"
-        },
-        {
-            name: "Work Wear",
-            image: "6.png"
-        },
-        {
-            name: "Custom Branding",
-            image: "7.png"
-        },
-        {
-            name: "Corporate Wear",
-            image: "8.png"
-        },
-        {
-            name: "UV Printing",
-            image: "9.png"
-        },
-        {
-            name: "3D Fabrication",
-            image: "10.webp"
-        },
-    ];
-
     const [count, setCount] = useState(0);
-    const [count_img, setCount_img] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCount((count) => (count + 1) % titles.length);
         }, 6000);
 
-        const interval_images = setInterval(() => {
-            setCount_img((count_img) => (count_img + 1) % images.length);
-        }, 3000);
         return () => {
             clearInterval(interval);
-            clearInterval(interval_images);
         };
-    }, [images.length, titles.length]);
+    }, [titles.length]);
 
     return (
         <main className="px-2">
