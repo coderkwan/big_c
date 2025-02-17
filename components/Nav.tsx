@@ -15,7 +15,6 @@ export default function Nav() {
                 </div>
                 <div className="gap-10 hidden md:flex items-center">
                     <Link href="services">Services</Link>
-                    <Link href="products">Products</Link>
                     <Link href="about">About Us</Link>
                     <Link href="contact">Contact Us</Link>
                     <Link href="https://" className="bg-white py-2 px-5 rounded-md text-slate-800">
