@@ -47,7 +47,7 @@ export default function Home() {
                 <div className="bg-black/85 flex flex-col md:flex-row px-[2rem] py-[5rem] gap-[4rem justify-between items-center">
                     <div className="flex flex-col md:text-center items-center gap-4 mx-auto max-w-[1000px]">
                         <h1 className="text-3xl md:text-6xl text-white font-bold uppercase">{titles[count]}</h1>
-                        <p className="text-sm md:text-[18px] leading-[25px] text-slate-100">
+                        <p className="text-sm md:text-[18px] leading-[25px] text-slate-300">
                             Big C Printworks specializas in signage printing and fabrication, stockiest
                             of signage material, Work wear, Corporate wear, Security Uniforms,
                             Sublimation, DTF, PPE, Safety wear, 3D cutouts, UV printing, Vinyl Printing
@@ -154,18 +154,18 @@ export default function Home() {
                         </div>
                         <div className="bg-white  border border-orange-500 p-5 rounded-xl flex flex-col  items-center gap-3">
                             <Image src='/custom.png' alt="high quality" width={50} height={50} />
-                            <h3 className="uppercase text-xl">High-Quality Printing Services</h3>
-                            <p className="text-slate-600">Boost your business with Print To Brand. We offer top-quality prints, from business cards to banners, making your brand shine.</p>
+                            <h3 className="uppercase text-xl">Custom Printing Solutions</h3>
+                            <p className="text-slate-600">No graphic design experience? No problem! Our custom design services guarantee eye-catching prints tailored to your business goals.</p>
                         </div>
                         <div className="bg-white  border border-orange-500 p-5 rounded-xl flex flex-col  items-center gap-3">
                             <Image src='/expertise.png' alt="high quality" width={50} height={50} />
-                            <h3 className="uppercase text-xl">High-Quality Printing Services</h3>
-                            <p className="text-slate-600">Boost your business with Print To Brand. We offer top-quality prints, from business cards to banners, making your brand shine.</p>
+                            <h3 className="uppercase text-xl">Expertise in Branding</h3>
+                            <p className="text-slate-600">Count on us for expert branding solutions, from promotional items to branded apparel, tailored to showcase your unique identity.</p>
                         </div>
                         <div className="bg-white border border-orange-500 p-5 rounded-xl flex flex-col  items-center gap-3">
                             <Image src='/speed.png' alt="high quality" width={50} height={50} />
-                            <h3 className="uppercase text-xl">High-Quality Printing Services</h3>
-                            <p className="text-slate-600">Boost your business with Print To Brand. We offer top-quality prints, from business cards to banners, making your brand shine.</p>
+                            <h3 className="uppercase text-xl">Efficient Turnaround</h3>
+                            <p className="text-slate-600">With streamlined processes, we guarantee efficient turnaround times without compromising on the quality of your prints and promotional items.</p>
                         </div>
                     </div>
                 </div>

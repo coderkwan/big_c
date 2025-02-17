@@ -4,16 +4,14 @@ import Image from "next/image"
 export default function Footer() {
     return (
         <div className="bg-orange-500 text-slate-100 py-[4rem] flex flex-col items-center">
-            <div className="mx-auto w-full max-w-[1200px] border-b border-slate-800 pb-[2rem] flex flex-col md:flex-row items-center text-center md:text-left gap-[3rem] justify-between ">
-                <div>
+            <div className="mx-auto w-full max-w-[1400px] border-b border-slate-800 pb-[2rem] flex flex-col md:flex-row items-center text-center md:text-left gap-[3rem] justify-between ">
+                <a href="/">
                     <Image src='/biglogo.png' alt="big c printworks logo" width={200} height={100} />
-                </div>
+                </a>
                 <div className="flex flex-col gap-4">
                     <h3 className="text-lg font-bold">Menu</h3>
-
                     <div className="flex flex-col gap-2">
                         <Link href="services">Services</Link>
-                        <Link href="products">Products</Link>
                         <Link href="about">About Us</Link>
                         <Link href="contact">Contact Us</Link>
                     </div>

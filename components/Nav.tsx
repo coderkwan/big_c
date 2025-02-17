@@ -5,14 +5,14 @@ export default function Nav() {
     return (
         <div className="text-slate-100 p-3">
             <div className="mx-auto px-2 max-w-[1400px] rounded-xl bg-black flex items-center justify-between gap-4">
-                <div className="p-2">
+                <a href="/" className="p-2">
                     <Image
                         src="/weblogo.png"
                         alt="big c logo"
                         width={120}
                         height={40}
                     />
-                </div>
+                </a>
                 <div className="gap-10 hidden md:flex items-center">
                     <Link href="services">Services</Link>
                     <Link href="about">About Us</Link>
