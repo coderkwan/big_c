@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function Nav() {
     return (
-        <div className="bg-black text-slate-100 p-3">
-            <div className="mx-auto max-w-[1200px] flex items-center justify-between gap-4">
+        <div className="text-slate-100 p-3">
+            <div className="mx-auto px-2 max-w-[1400px] rounded-xl bg-black flex items-center justify-between gap-4">
                 <div className="p-2">
                     <Image
                         src="/weblogo.png"

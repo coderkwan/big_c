@@ -2,14 +2,18 @@
 
 import {useEffect, useState} from "react";
 import Image from "next/image";
+import TitleOne from "../components/TitleOne"
+import TitleTwo from "../components/TitleTwo"
+import TitleThree from "../components/TitleThree"
+import TitleFour from "../components/TitleFour"
 
 export default function Home() {
 
     const titles = [
-        "Signage Printing, Stockiest of signage materials",
-        "Custom Branding: DTF, Sublimation, UV & Vinyl",
-        "Vihicle branding, Banners and Promotional Items",
-        "Premium Workwear, Safety Gear & Corporate Uniforms",
+        <TitleOne />,
+        <TitleTwo />,
+        <TitleThree />,
+        <TitleFour />,
     ];
 
     const [count, setCount] = useState(0);
@@ -26,9 +30,8 @@ export default function Home() {
 
     return (
         <main className="px-2">
-            {/* <section className="bg-[url(/bg_blue.png)] py-[3rem] px-6 md:p-[5rem] bg-cover  my-[10rem] flex flex-col gap-4 items-center"> */}
-            <div className="bg-[url(/bg.jpg)] bg-cover overflow-hidden max-w-[1200px] mx-auto mb-[10rem] mb-[5rem] mt-[2rem] rounded-3xl">
-                <div className=" bg-black/80 flex flex-col md:flex-row px-[2rem] py-[6rem] gap-[4rem justify-between items-center">
+            <div className="bg-[url(/bg2.JPG)] bg-cover overflow-hidden max-w-[1400px] mx-auto mb-[10rem] mb-[5rem] mt-[2rem] rounded-3xl">
+                <div className=" bg-black/85 flex flex-col md:flex-row px-[2rem] py-[6rem] gap-[4rem justify-between items-center">
                     <div className="flex flex-col md:text-center items-center gap-4 mx-auto max-w-[1000px]">
                         <h1 className="text-3xl md:text-6xl text-white font-bold uppercase">{titles[count]}</h1>
                         <p className="text-sm md:text-[18px] leading-[25px] text-slate-100">
@@ -38,9 +41,9 @@ export default function Home() {
                             & Cutting, Car branding, Fabrics and T-shirts Manufacturers, Aluminum,
                             Steel, We provide a lasting solution to all your branding needs.
                         </p>
-                        <div className="flex gap-4 my-[2rem]">
-                            <button className=" rounded-lg bg-white text-slate-900 text-lg py-3 px-9 ">Services</button>
-                            <button className="rounded-lg bg-orange-500 text-slate-100 text-lg py-3 px-9 ">
+                        <div className="flex flex-col justify-center w-full md:flex-row gap-4 my-[2rem]">
+                            <button className="w-full  md:w-auto rounded-lg bg-white text-slate-900 text-lg py-3 px-9 ">Services</button>
+                            <button className="w-full md:w-auto rounded-lg bg-orange-500 text-slate-100 text-lg py-3 px-9 ">
                                 Contact Us
                             </button>
                         </div>
@@ -48,9 +51,9 @@ export default function Home() {
                 </div>
             </div>
             <section className="max-w-[1400px] mx-auto my-[10rem] px-2 md:px-6 flex flex-col items-center">
-                <div className="text-center mb-[3rem]  max-w-[800px]">
+                <div className="md:text-center mb-[3rem]  max-w-[800px]">
                     <h2 className="text-5xl font-bold uppercase mb-3">What we do</h2>
-                    <p className="text-lg text-slate-600">Big C Printworks delivers high-quality printing, fabrication, and branding solutions tailored to your needs. With precision, durability, and expert craftsmanship, we ensure lasting results for businesses and individuals alike.</p>
+                    <p className="text-xl text-slate-600">Big C Printworks delivers high-quality printing, fabrication, and branding solutions tailored to your needs. With precision, durability, and expert craftsmanship, we ensure lasting results for businesses and individuals alike.</p>
                 </div>
                 <div className="flex flex-col w-full overflow-x-auto gap-3 items-center">
                     <div className="flex w-full overflow-x-auto scrollbar-hide pb-6 md:px-4 gap-6">
@@ -154,11 +157,11 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="mt-[10rem]  py-[3rem] px-[1rem] md:p-[5rem] bg-slate-800 text-slate-200 md:text-center flex flex-col gap-4 md:items-center">
+            <section className="mx-auto rounded-3xl max-w-[1400px] my-[5rem] py-[3rem] px-[1rem] md:p-[5rem] bg-slate-800 text-slate-200 md:text-center flex flex-col gap-4 md:items-center">
                 <h3 className="uppercase text-3xl md:text-5xl font-bold">Fast and Affordable Branding services</h3>
                 <p className="text-slate-300 mx-auto max-w-[800px] text-xl">Get high-quality branding solutions that are both fast and budget-friendly. From custom prints to eye-catching signage, we deliver professional results with quick turnaround times. Elevate your brand without breaking the bank!</p>
                 <div>
-                    <button className="bg-orange-500 text-slate-100 p-4 rounded-lg">Contact Us</button>
+                    <button className="bg-orange-500 text-slate-100 py-4 px-12 rounded-lg">Contact Us</button>
                 </div>
             </section>
         </main>
