@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import {useEffect, useState, useRef} from "react";
 import Image from "next/image";
 import TitleOne from "../components/TitleOne"
 import TitleTwo from "../components/TitleTwo"
@@ -8,7 +8,8 @@ import TitleThree from "../components/TitleThree"
 import TitleFour from "../components/TitleFour"
 
 export default function Home() {
-
+    const services = useRef<HTMLDivElement | null>(null);
+    const pos = 150
     const titles = [
         <TitleOne key={0} />,
         <TitleTwo key={1} />,
@@ -17,6 +18,18 @@ export default function Home() {
     ];
 
     const [count, setCount] = useState(0);
+
+    function scrollLeft() {
+        if (services.current != null) {
+            services.current.scrollBy({left: 0 - pos, behavior: 'smooth'})
+        }
+    }
+
+    function scrollRight() {
+        if (services.current != null) {
+            services.current.scrollBy({left: pos, behavior: 'smooth'})
+        }
+    }
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -29,9 +42,9 @@ export default function Home() {
     }, [titles.length]);
 
     return (
-        <main className="px-2">
-            <div className="bg-[url(/bg2.JPG)] bg-cover overflow-hidden max-w-[1400px] mx-auto mb-[10rem] mb-[5rem] mt-[2rem] rounded-3xl">
-                <div className=" bg-black/85 flex flex-col md:flex-row px-[2rem] py-[6rem] gap-[4rem justify-between items-center">
+        <main className="px-2 flex flex-col gap-[10rem] mb-[10rem]">
+            <section className="bg-[url(/bg2.JPG)] bg-cover overflow-hidden w-full max-w-[1400px] mx-auto rounded-3xl">
+                <div className="bg-black/85 flex flex-col md:flex-row px-[2rem] py-[5rem] gap-[4rem justify-between items-center">
                     <div className="flex flex-col md:text-center items-center gap-4 mx-auto max-w-[1000px]">
                         <h1 className="text-3xl md:text-6xl text-white font-bold uppercase">{titles[count]}</h1>
                         <p className="text-sm md:text-[18px] leading-[25px] text-slate-100">
@@ -49,14 +62,14 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <section className="max-w-[1400px] mx-auto my-[10rem] px-2 md:px-6 flex flex-col items-center">
-                <div className="md:text-center mb-[3rem]  max-w-[800px]">
-                    <h2 className="text-5xl font-bold uppercase mb-3">What we do</h2>
+            </section>
+            <section className="w-full max-w-[1400px] mx-auto flex flex-col px-[1rem] items-center">
+                <div className="md:text-center mb-[2rem]  max-w-[800px]">
+                    <h2 className="text-3xl md:text-5xl font-bold uppercase mb-3">What we do</h2>
                     <p className="text-xl text-slate-600">Big C Printworks delivers high-quality printing, fabrication, and branding solutions tailored to your needs. With precision, durability, and expert craftsmanship, we ensure lasting results for businesses and individuals alike.</p>
                 </div>
                 <div className="flex flex-col w-full overflow-x-auto gap-3 items-center">
-                    <div className="flex w-full overflow-x-auto scrollbar-hide pb-6 md:px-4 gap-6">
+                    <div ref={services} className="flex w-full overflow-x-auto scrollbar-hide pb-6 md:px-4 gap-6">
                         <div className="bg-orange-500 min-w-[300px]  md:min-w-[400px] p-3 rounded-xl felx flex-col gap-2">
                             <div className="relative w-full h-[300px] rounded-xl overflow-hidden">
                                 <Image src="/signage.jpg" alt="signage printing" objectFit="cover" layout="fill" />
@@ -122,18 +135,18 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="flex gap-3 items-center">
-                        <div className="cursor-pointer"><Image src='/prev.png' alt="scrol back" width={50} height={50} /></div>
-                        <div className="cursor-pointer"><Image src='/next.png' alt="scrol back" width={50} height={50} /></div>
+                        <div onClick={scrollLeft} className="cursor-pointer"><Image src='/prev.png' alt="scrol back" width={50} height={50} /></div>
+                        <div onClick={scrollRight} className="cursor-pointer"><Image src='/next.png' alt="scrol back" width={50} height={50} /></div>
                     </div>
                 </div>
             </section>
-            <section className="bg-[url(/bg_blue.png)] py-[3rem] px-6 md:p-[5rem] bg-cover  my-[10rem] flex flex-col gap-4 items-center">
-                <div className="text-center mb-[3rem]">
-                    <h2 className="text-4xl font-bold  uppercase">Why you should choose us?</h2>
+            <section className="bg-[url(/bg_blue.png)] py-[2rem] px-[1rem] bg-cover flex flex-col gap-2 items-center">
+                <div className="text-center mb-[2rem]">
+                    <h2 className="text-3xl md:text-5xl font-bold  uppercase">Why you should choose us?</h2>
                     <p className="text-slate-600 text-lg">The only reasons why you shoul work with Big C Printworks.</p>
                 </div>
                 <div className="max-w-[1400px] mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 text-center gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 text-center gap-5">
                         <div className="bg-white  border border-orange-500 p-5 rounded-xl flex flex-col items-center gap-3">
                             <Image src='/quality.png' alt="high quality" width={50} height={50} />
                             <h3 className="uppercase text-xl">High-Quality Printing Services</h3>
@@ -157,7 +170,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="mx-auto rounded-3xl max-w-[1400px] my-[5rem] py-[3rem] px-[1rem] md:p-[5rem] bg-slate-800 text-slate-200 md:text-center flex flex-col gap-4 md:items-center">
+            <section className="mx-auto rounded-3xl max-w-[1400px] py-[3rem] px-[1rem] md:p-[5rem] bg-slate-800 text-slate-200 md:text-center flex flex-col gap-4 md:items-center">
                 <h3 className="uppercase text-3xl md:text-5xl font-bold">Fast and Affordable Branding services</h3>
                 <p className="text-slate-300 mx-auto max-w-[800px] text-xl">Get high-quality branding solutions that are both fast and budget-friendly. From custom prints to eye-catching signage, we deliver professional results with quick turnaround times. Elevate your brand without breaking the bank!</p>
                 <div>
