@@ -10,10 +10,10 @@ import TitleFour from "../components/TitleFour"
 export default function Home() {
 
     const titles = [
-        <TitleOne />,
-        <TitleTwo />,
-        <TitleThree />,
-        <TitleFour />,
+        <TitleOne key={0} />,
+        <TitleTwo key={1} />,
+        <TitleThree key={2} />,
+        <TitleFour key={3} />,
     ];
 
     const [count, setCount] = useState(0);
