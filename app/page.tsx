@@ -3,6 +3,7 @@
 import {useEffect, useState} from "react";
 import Image from "next/image";
 import TitleOne from "../components/TitleOne"
+import Link from "next/link";
 import TitleTwo from "../components/TitleTwo"
 import TitleThree from "../components/TitleThree"
 import TitleFour from "../components/TitleFour"
@@ -72,10 +73,10 @@ export default function Home() {
                             Steel, We provide a lasting solution to all your branding needs.
                         </p>
                         <div className="flex flex-col justify-center w-full md:flex-row gap-4 my-[2rem]">
-                            <button className="w-full  md:w-auto rounded-lg bg-white text-slate-900 text-lg py-3 px-9 ">Services</button>
-                            <button className="w-full md:w-auto rounded-lg bg-orange-500 text-slate-100 text-lg py-3 px-9 ">
+                            <Link href='/#services' className="w-full  md:w-auto rounded-lg bg-white text-slate-900 text-lg py-3 px-9 ">Services</Link>
+                            <Link href='/#contact' className="w-full md:w-auto rounded-lg bg-orange-500 text-slate-100 text-lg py-3 px-9 ">
                                 Contact Us
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -84,7 +85,7 @@ export default function Home() {
             <section className="w-full max-w-[1400px] mx-auto flex flex-col px-[1rem] items-center">
                 <div className="md:text-center mb-[2rem]  max-w-[800px]">
                     <h2 className="text-3xl md:text-5xl font-bold uppercase mb-3">What we do</h2>
-                    <p className="text-xl text-slate-600">Big C Printworks delivers high-quality printing, fabrication, and branding solutions tailored to your needs. With precision, durability, and expert craftsmanship, we ensure lasting results for businesses and individuals alike.</p>
+                    <p className="text-sm md:text-xl text-slate-600">Big C Printworks delivers high-quality printing, fabrication, and branding solutions tailored to your needs. With precision, durability, and expert craftsmanship, we ensure lasting results for businesses and individuals alike.</p>
                 </div>
                 <div className="flex flex-col w-full overflow-x-auto gap-3 items-center">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full pb-6 md:px-4 gap-6">

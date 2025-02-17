@@ -25,13 +25,13 @@ export default function Footer() {
                         <p>Matsapha, Eswatini</p>
                     </div>
                     <div className="flex items-center gap-4">
-                        <Link href="https" className="bg-white p-2 rounded-full">
+                        <Link href="https://wa.me/26879707070" className="bg-white p-2 rounded-full">
                             <Image src='/wp_.png' alt="whatsapp" width={30} height={30} />
                         </Link>
-                        <Link href="https" className="bg-white p-2 rounded-full">
+                        <Link href="https://facebook.com/bigc_printworks" className="bg-white p-2 rounded-full">
                             <Image src='/fb.png' alt="facebook" width={30} height={30} />
                         </Link>
-                        <Link href="https" className="bg-white p-2 rounded-full">
+                        <Link href="https://instagram.com/big_c_printworks" className="bg-white p-2 rounded-full">
                             <Image src='/ig.png' alt="instagram" width={30} height={30} />
                         </Link>
                     </div>
