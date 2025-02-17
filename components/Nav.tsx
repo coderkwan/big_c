@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Nav() {
     return (
-        <div className="text-slate-100 p-3">
+        <div className="sticky top-0 z-10 text-slate-100 p-3">
             <div className="mx-auto px-2 max-w-[1400px] rounded-xl bg-black flex items-center justify-between gap-4">
                 <Link href="/#" className="p-2">
                     <Image

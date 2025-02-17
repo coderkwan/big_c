@@ -59,7 +59,7 @@ export default function Home() {
     }, [titles.length]);
 
     return (
-        <main className="px-2 flex flex-col gap-[10rem] mb-[10rem]">
+        <main className="px-2 flex flex-col gap-[5rem] mb-[10rem]">
             <section className="bg-[url(/bg2.JPG)] bg-cover overflow-hidden w-full max-w-[1400px] mx-auto rounded-3xl">
                 <div className="bg-black/85 flex flex-col md:flex-row px-[2rem] py-[5rem] gap-[4rem justify-between items-center">
                     <div className="flex flex-col md:text-center items-center gap-4 mx-auto max-w-[1000px]">
@@ -80,7 +80,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section id="services" className="w-full max-w-[1400px] mx-auto flex flex-col px-[1rem] items-center">
+            <div id="services" className=""></div>
+            <section className="w-full max-w-[1400px] mx-auto flex flex-col px-[1rem] items-center">
                 <div className="md:text-center mb-[2rem]  max-w-[800px]">
                     <h2 className="text-3xl md:text-5xl font-bold uppercase mb-3">What we do</h2>
                     <p className="text-xl text-slate-600">Big C Printworks delivers high-quality printing, fabrication, and branding solutions tailored to your needs. With precision, durability, and expert craftsmanship, we ensure lasting results for businesses and individuals alike.</p>
@@ -153,10 +154,11 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section id="why" className="bg-[url(/bg_blue.png)] py-[2rem] px-[1rem] bg-cover flex flex-col gap-2 items-center">
+            <div id="why" className=""></div>
+            <section className="bg-[url(/bg_blue.png)] py-[2rem] px-[1rem] bg-cover flex flex-col gap-2 items-center">
                 <div className="text-center mb-[2rem]">
                     <h2 className="text-3xl md:text-5xl font-bold  uppercase">Why you should choose us?</h2>
-                    <p className="text-slate-600 text-lg">The only reasons why you shoul work with Big C Printworks.</p>
+                    <p className="text-slate-600 text-lg">Some reasons why you should work with Big C Printworks.</p>
                 </div>
                 <div className="max-w-[1400px] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 text-center gap-5">
@@ -190,7 +192,8 @@ export default function Home() {
                     <button className="bg-orange-500 text-slate-100 py-4 px-12 rounded-lg">Contact Us</button>
                 </div>
             </section>
-            <section id="about" className="mx-auto rounded-3xl w-full max-w-[1400px]  px-[1rem] md:p-[5rem] text-slate-800 md:text-center flex flex-col gap-4 md:items-center">
+            <div id="about" className=""></div>
+            <section className="mx-auto rounded-3xl w-full max-w-[1400px]  px-[1rem] md:p-[5rem] text-slate-800 md:text-center flex flex-col gap-4 md:items-center">
                 <h3 className="uppercase text-3xl md:text-5xl font-bold">About Big C Printworks</h3>
                 <p className="max-w-[800px] text-xl">Big C Printworks is your trusted partner in high-quality signage printing, fabrication, and branding solutions. With a commitment to excellence and innovation, we provide a one-stop solution for all your branding, printing, and corporate wear needs.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
@@ -222,7 +225,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section id="contact" className="mx-auto rounded-3xl w-full max-w-[1400px] py-[3rem] px-[1rem] md:p-[5rem] bg-slate-800 text-slate-200 md:text-center flex flex-col gap-6 md:items-center">
+            <div id="contact" className=""></div>
+            <section className="mx-auto rounded-3xl w-full max-w-[1400px] py-[3rem] px-[1rem] md:p-[5rem] bg-slate-800 text-slate-200 md:text-center flex flex-col gap-6 md:items-center">
                 <div>
                     <h3 className="text-3xl md:text-5xl uppercase font-bold">Contact Us</h3>
                     <p className="text-orange-500">We will get back to you ASAP!</p>
