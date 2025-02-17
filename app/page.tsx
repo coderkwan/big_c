@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useState, useRef} from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
 import TitleOne from "../components/TitleOne"
 import TitleTwo from "../components/TitleTwo"
@@ -8,8 +8,6 @@ import TitleThree from "../components/TitleThree"
 import TitleFour from "../components/TitleFour"
 
 export default function Home() {
-    const services = useRef<HTMLDivElement | null>(null);
-    const pos = 150
     const titles = [
         <TitleOne key={0} />,
         <TitleTwo key={1} />,
@@ -18,18 +16,37 @@ export default function Home() {
     ];
 
     const [count, setCount] = useState(0);
+    const [status, setStatus] = useState("");
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [message, setMessage] = useState("")
+    const [phone, setPhone] = useState("")
 
-    function scrollLeft() {
-        if (services.current != null) {
-            services.current.scrollBy({left: 0 - pos, behavior: 'smooth'})
-        }
-    }
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('Sending email...');
+        const emailData = {name, email, phone, message}
 
-    function scrollRight() {
-        if (services.current != null) {
-            services.current.scrollBy({left: pos, behavior: 'smooth'})
+        try {
+            const res = await fetch('/api/Sendmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(emailData),
+            });
+
+            const result = await res.json();
+            if (res.ok) {
+                setStatus('Email sent successfully!');
+            } else {
+                setStatus(`Error: ${result.message}`);
+            }
+        } catch (e) {
+            console.log(e)
+            setStatus('Failed to send email.');
         }
-    }
+    };
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -63,13 +80,13 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="w-full max-w-[1400px] mx-auto flex flex-col px-[1rem] items-center">
+            <section id="services" className="w-full max-w-[1400px] mx-auto flex flex-col px-[1rem] items-center">
                 <div className="md:text-center mb-[2rem]  max-w-[800px]">
                     <h2 className="text-3xl md:text-5xl font-bold uppercase mb-3">What we do</h2>
                     <p className="text-xl text-slate-600">Big C Printworks delivers high-quality printing, fabrication, and branding solutions tailored to your needs. With precision, durability, and expert craftsmanship, we ensure lasting results for businesses and individuals alike.</p>
                 </div>
                 <div className="flex flex-col w-full overflow-x-auto gap-3 items-center">
-                    <div ref={services} className="flex w-full overflow-x-auto scrollbar-hide pb-6 md:px-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full pb-6 md:px-4 gap-6">
                         <div className="bg-orange-500 min-w-[300px]  md:min-w-[400px] p-3 rounded-xl felx flex-col gap-2">
                             <div className="relative w-full h-[300px] rounded-xl overflow-hidden">
                                 <Image src="/signage.jpg" alt="signage printing" objectFit="cover" layout="fill" />
@@ -134,13 +151,9 @@ export default function Home() {
                             <p className="text-slate-100">Transfer vibrant, long-lasting prints onto fabrics, mugs, and other coated surfaces with sublimation printing.</p>
                         </div>
                     </div>
-                    <div className="flex gap-3 items-center">
-                        <div onClick={scrollLeft} className="cursor-pointer"><Image src='/prev.png' alt="scrol back" width={50} height={50} /></div>
-                        <div onClick={scrollRight} className="cursor-pointer"><Image src='/next.png' alt="scrol back" width={50} height={50} /></div>
-                    </div>
                 </div>
             </section>
-            <section className="bg-[url(/bg_blue.png)] py-[2rem] px-[1rem] bg-cover flex flex-col gap-2 items-center">
+            <section id="why" className="bg-[url(/bg_blue.png)] py-[2rem] px-[1rem] bg-cover flex flex-col gap-2 items-center">
                 <div className="text-center mb-[2rem]">
                     <h2 className="text-3xl md:text-5xl font-bold  uppercase">Why you should choose us?</h2>
                     <p className="text-slate-600 text-lg">The only reasons why you shoul work with Big C Printworks.</p>
@@ -170,11 +183,106 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="mx-auto rounded-3xl max-w-[1400px] py-[3rem] px-[1rem] md:p-[5rem] bg-slate-800 text-slate-200 md:text-center flex flex-col gap-4 md:items-center">
+            <section className="mx-auto rounded-3xl w-full max-w-[1400px] py-[3rem] px-[1rem] md:p-[5rem] bg-slate-800 text-slate-200 md:text-center flex flex-col gap-4 md:items-center">
                 <h3 className="uppercase text-3xl md:text-5xl font-bold">Fast and Affordable Branding services</h3>
                 <p className="text-slate-300 mx-auto max-w-[800px] text-xl">Get high-quality branding solutions that are both fast and budget-friendly. From custom prints to eye-catching signage, we deliver professional results with quick turnaround times. Elevate your brand without breaking the bank!</p>
                 <div>
                     <button className="bg-orange-500 text-slate-100 py-4 px-12 rounded-lg">Contact Us</button>
+                </div>
+            </section>
+            <section id="about" className="mx-auto rounded-3xl w-full max-w-[1400px]  px-[1rem] md:p-[5rem] text-slate-800 md:text-center flex flex-col gap-4 md:items-center">
+                <h3 className="uppercase text-3xl md:text-5xl font-bold">About Big C Printworks</h3>
+                <p className="max-w-[800px] text-xl">Big C Printworks is your trusted partner in high-quality signage printing, fabrication, and branding solutions. With a commitment to excellence and innovation, we provide a one-stop solution for all your branding, printing, and corporate wear needs.</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
+                    <div className="text-left">
+                        <h4 className="text-2xl font-bold text-orange-500 uppercase">Who we are</h4>
+                        <p>At Big C Printworks, we specialize in signage printing and fabrication, ensuring your brand stands out with precision and durability. As stockists of premium signage materials, we cater to businesses looking for top-notch branding solutions. From corporate and security uniforms to workwear and safety gear, we offer high-quality apparel that reflects your brand identity.</p>
+                    </div>
+                    <div className="text-left">
+                        <h4 className="text-2xl font-bold text-orange-500 uppercase">Why us?</h4>
+                        <p>✔ Quality & Durability – We use premium materials and advanced printing technology.
+                        </p>
+                        <p>
+                            ✔ Comprehensive Solutions – From signage to workwear, we cover all your branding needs.
+                        </p><p>
+
+                            ✔ Customization – Tailored solutions to match your unique brand identity.
+                        </p><p>
+
+                            ✔ Commitment to Excellence – We focus on delivering top-tier results with lasting impact.</p>
+                    </div>
+                    <div className="text-left">
+                        <h4 className="text-2xl font-bold text-orange-500 uppercase">Our Offices</h4>
+                        <p>We are not limited in our offices, we can deliver wherever you are.</p>
+                        <div className="flex flex-col font-bold">
+                            <p>Opposite Infracast</p>
+                            <p>Matsapha Industrial Site</p>
+                            <p>Matsapha, Eswatini</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="contact" className="mx-auto rounded-3xl w-full max-w-[1400px] py-[3rem] px-[1rem] md:p-[5rem] bg-slate-800 text-slate-200 md:text-center flex flex-col gap-6 md:items-center">
+                <div>
+                    <h3 className="text-3xl md:text-5xl uppercase font-bold">Contact Us</h3>
+                    <p className="text-orange-500">We will get back to you ASAP!</p>
+                </div>
+                <div className="flex flex-col md:flex-row w-full gap-[5rem] items-center">
+                    <div className="w-full md:w-[50%] md:p-[3rem] rounded ">
+                        <form onSubmit={handleSubmit} className="max-w-[600px] flex flex-col text-start gap-4 ">
+                            <div className="flex flex-col ">
+                                <label htmlFor="">Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    required={true}
+                                    className=" p-3 border bg-slate-800 border-slate-500 rounded-md"
+                                />
+                            </div>
+                            <div className="flex flex-col ">
+                                <label htmlFor="">Phone</label>
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    required={true}
+                                    className=" p-3 border border-slate-500 bg-slate-800 rounded-md"
+                                />
+                            </div>
+                            <div className="flex flex-col ">
+                                <label htmlFor="">Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required={true}
+                                    className=" p-3 border border-slate-500 bg-slate-800 rounded-md"
+                                />
+                            </div>
+                            <div className="flex flex-col gap">
+                                <label htmlFor="">message</label>
+                                <textarea
+                                    className=" p-3 border border-slate-500 bg-slate-800 rounded-md"
+                                    name="message"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                    required={true}
+                                    id=""
+                                ></textarea>
+                            </div>
+                            <button type='submit' className="bg-orange-500 text-slate-100 p-3 rounded-md">Send Message</button>
+                            {status && <p>{status}</p>}
+                        </form>
+                    </div>
+                    <div className="w-full md:w-[50%] flex justify-center h-full">
+                        <div className="bg-black h-[400px] w-full rounded-xl overflow-hidden relative">
+                            <Image src='/printer.jpg' alt="Branding services" layout="fill" objectFit="cover" />
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
