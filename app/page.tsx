@@ -1,12 +1,13 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 import TitleOne from "../components/TitleOne"
 import Link from "next/link";
 import TitleTwo from "../components/TitleTwo"
 import TitleThree from "../components/TitleThree"
 import TitleFour from "../components/TitleFour"
+import products_list from "@/utils/products";
 
 export default function Home() {
     const titles = [
@@ -22,6 +23,20 @@ export default function Home() {
     const [email, setEmail] = useState("")
     const [message, setMessage] = useState("")
     const [phone, setPhone] = useState("")
+    const products = useRef<HTMLDivElement | null>(null)
+    const pos = 150
+
+    function scrollLeft() {
+        if (products.current != null) {
+            products.current.scrollBy({left: 0 - pos, behavior: 'smooth'})
+        }
+    }
+
+    function scrollRight() {
+        if (products.current != null) {
+            products.current.scrollBy({left: pos, behavior: 'smooth'})
+        }
+    }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -79,6 +94,38 @@ export default function Home() {
                             </Link>
                         </div>
                     </div>
+                </div>
+            </section>
+            <div id="products" className=""></div>
+            <section className="w-full max-w-[1400px] flex flex-col items-center mx-auto px-[1rem]">
+                <div className="md:text-center mb-[2rem]  max-w-[800px]">
+                    <h2 className="text-3xl md:text-5xl font-bold uppercase mb-3">Our Products</h2>
+                    <p className="text-sm md:text-xl text-slate-600">Big C Printworks supply and delivers high-quality products.</p>
+                </div>
+                <div ref={products} className="w-full flex gap-2 py-2 no-scrollbar overflow-x-auto ">
+                    {
+                        products_list.map((item, key) => {
+                            return (
+                                <div key={key} className="min-w-[260px] flex flex-col gap-2 border border-orange-500 rounded-lg p-2">
+                                    <div className="relative h-[240px] rounded-lg overflow-hidden">
+                                        <Image src={`/products/${item.image}.jpg`} layout="fill" alt="golf tshirt for sale" />
+                                    </div>
+                                    <h3 className="font-bold text-orange-500">{item.name}</h3>
+                                    {item.description &&
+                                        <p className="text-sm">{item.description}</p>
+                                    }
+                                    <h4 className="font-bold"><span className="text-sm font-light">From{" "}</span>E {item.price}</h4>
+                                    <p className="italic text-orange-500">{item.price_for}</p>
+                                </div>
+                            )
+                        })
+
+
+                    }
+                </div>
+                <div className="flex items-center gap-5">
+                    <Image onClick={scrollLeft} src='/prev.png' alt="scroll back" width={50} height={50} />
+                    <Image onClick={scrollRight} src='/next.png' alt="scroll back" width={50} height={50} />
                 </div>
             </section>
             <div id="services" className=""></div>

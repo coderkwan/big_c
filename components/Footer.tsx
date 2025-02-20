@@ -11,6 +11,7 @@ export default function Footer() {
                 <div className="flex flex-col gap-4">
                     <h3 className="text-lg font-bold">Menu</h3>
                     <div className="flex flex-col gap-2">
+                        <Link href="/#products">Products</Link>
                         <Link href="/#services">Services</Link>
                         <Link href="/#why">Why Us</Link>
                         <Link href="/#about">About Us</Link>
