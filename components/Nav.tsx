@@ -60,6 +60,7 @@ export default function Nav() {
                 nav &&
                 <div className="relative sticky top-[80px] z-10">
                     <div className="z-10 w-[90vw] mx-auto bg-black absolute rounded-xl flex md:hidden left-0 right-0 top-[5px] items-center gap-4 flex-col p-[2rem]">
+                    <Link href="/#products">Products</Link>
                         <Link href="/#services">Services</Link>
                         <Link href="/#why">Why Us</Link>
                         <Link href="/#about">About Us</Link>
