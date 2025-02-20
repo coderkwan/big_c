@@ -106,21 +106,25 @@ export default function Home() {
                     {
                         products_list.map((item, key) => {
                             return (
-                                <div key={key} className="min-w-[260px] flex flex-col gap-2 border border-orange-500 rounded-lg p-2">
-                                    <div className="relative h-[240px] rounded-lg overflow-hidden">
-                                        <Image src={`/products/${item.image}.jpg`} layout="fill" alt="golf tshirt for sale" />
+                                <div key={key} className="min-w-[260px] flex flex-col justify-between gap-2 border border-orange-500 rounded-lg p-2">
+                                    <div>
+                                        <div className="relative h-[240px] mb-3 rounded-lg overflow-hidden">
+                                            <Image src={`/products/${item.image}.jpg`} layout="fill" alt="golf tshirt for sale" />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-bold text-orange-500">{item.name}</h3>
+                                            {item.description &&
+                                                <p className="text-sm text-slate-800">{item.description}</p>
+                                            }
+                                        </div>
                                     </div>
-                                    <h3 className="font-bold text-orange-500">{item.name}</h3>
-                                    {item.description &&
-                                        <p className="text-sm">{item.description}</p>
-                                    }
-                                    <h4 className="font-bold"><span className="text-sm font-light">From{" "}</span>E {item.price}</h4>
-                                    <p className="italic text-orange-500">{item.price_for}</p>
+                                    <div className="flex gap-2 items-center border-t border-orange-500 py-2 justify-between">
+                                        <h4 className="font-bold text-lg w-full"><span className="text-sm font-light">From{" "}</span>E {item.price}</h4>
+                                        <p className="italic text-xs text-slate-500">{item.price_for}</p>
+                                    </div>
                                 </div>
                             )
                         })
-
-
                     }
                 </div>
                 <div className="flex items-center gap-5">

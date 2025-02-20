@@ -1,15 +1,15 @@
 const products_list = [
     {
-        name: "100% Golf Tshirts",
+        name: "Round Neck and V-neck T-shirts",
         price: "35.00",
-        description: "Honeycomb, Polyester, Polycotton",
+        description: "Honeycomb, Polyester, Polycotton and 100% Cotton",
         price_for: "Stock Price (over 10 units)",
         image: "cotton_shirt"
     },
     {
-        name: "100% Golf T-shirts",
+        name: "Golf T-shirts",
         price: "75.00",
-        description: "Honeycomb, Polyester, Polycotton",
+        description: "Honeycomb, Polyester, Polycotton and 100% Cotton",
         price_for: "Stock Price (over 10 units)",
         image: "golf_shirt"
     },
@@ -23,7 +23,7 @@ const products_list = [
     {
         name: "Safety Boots",
         price: "150.00",
-        description: "",
+        description: "Variety of safety kboots",
         price_for: "Each",
         image: "safety_boots"
     },
@@ -39,7 +39,7 @@ const products_list = [
         price: "650.00",
         description: "",
         price_for: "Each",
-        image: "overalls"
+        image: "dagama"
     },
     {
         name: "Corporate Wear Shirts/Pants",
