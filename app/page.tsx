@@ -27,15 +27,25 @@ export default function Home() {
     const branding = useRef<HTMLDivElement | null>(null)
     const pos = 150
 
-    function scrollLeft(ref) {
-        if (ref.current != null) {
-            ref.current.scrollBy({left: 0 - pos, behavior: 'smooth'})
+    function scrollLeft() {
+        if (products.current != null) {
+            products.current.scrollBy({left: 0 - pos, behavior: 'smooth'})
+        }
+    }
+    function scrollLeft2() {
+        if (branding.current != null) {
+            branding.current.scrollBy({left: 0 - pos, behavior: 'smooth'})
         }
     }
 
-    function scrollRight(ref) {
-        if (ref.current != null) {
-            ref.current.scrollBy({left: pos, behavior: 'smooth'})
+    function scrollRight2() {
+        if (branding.current != null) {
+            branding.current.scrollBy({left: pos, behavior: 'smooth'})
+        }
+    }
+    function scrollRight() {
+        if (products.current != null) {
+            products.current.scrollBy({left: pos, behavior: 'smooth'})
         }
     }
 
@@ -129,8 +139,8 @@ export default function Home() {
                     }
                 </div>
                 <div className=" mb-5 flex items-center gap-5">
-                    <Image onClick={() => scrollLeft(products)} src='/prev.png' alt="scroll back" width={50} height={50} />
-                    <Image onClick={() => scrollRight(products)} src='/next.png' alt="scroll back" width={50} height={50} />
+                    <Image onClick={scrollLeft} src='/prev.png' alt="scroll back" width={50} height={50} />
+                    <Image onClick={scrollRight} src='/next.png' alt="scroll back" width={50} height={50} />
                 </div>
                 <div ref={branding} className="w-full flex gap-2 py-2 no-scrollbar overflow-x-auto ">
                     {
@@ -158,8 +168,8 @@ export default function Home() {
                     }
                 </div>
                 <div className="flex items-center gap-5">
-                    <Image onClick={() => scrollLeft(branding)} src='/prev.png' alt="scroll back" width={50} height={50} />
-                    <Image onClick={() => scrollRight(branding)} src='/next.png' alt="scroll back" width={50} height={50} />
+                    <Image onClick={ scrollLeft2} src='/prev.png' alt="scroll back" width={50} height={50} />
+                    <Image onClick={scrollRight2} src='/next.png' alt="scroll back" width={50} height={50} />
                 </div>
             </section>
             <div id="services" className=""></div>
