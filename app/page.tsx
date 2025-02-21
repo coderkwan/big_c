@@ -7,7 +7,7 @@ import Link from "next/link";
 import TitleTwo from "../components/TitleTwo"
 import TitleThree from "../components/TitleThree"
 import TitleFour from "../components/TitleFour"
-import products_list from "@/utils/products";
+import {products_list, branding_list} from "@/utils/products";
 
 export default function Home() {
     const titles = [
@@ -24,17 +24,18 @@ export default function Home() {
     const [message, setMessage] = useState("")
     const [phone, setPhone] = useState("")
     const products = useRef<HTMLDivElement | null>(null)
+    const branding = useRef<HTMLDivElement | null>(null)
     const pos = 150
 
-    function scrollLeft() {
-        if (products.current != null) {
-            products.current.scrollBy({left: 0 - pos, behavior: 'smooth'})
+    function scrollLeft(ref) {
+        if (ref.current != null) {
+            ref.current.scrollBy({left: 0 - pos, behavior: 'smooth'})
         }
     }
 
-    function scrollRight() {
-        if (products.current != null) {
-            products.current.scrollBy({left: pos, behavior: 'smooth'})
+    function scrollRight(ref) {
+        if (ref.current != null) {
+            ref.current.scrollBy({left: pos, behavior: 'smooth'})
         }
     }
 
@@ -109,7 +110,36 @@ export default function Home() {
                                 <div key={key} className="min-w-[260px] flex flex-col justify-between gap-2 border border-orange-500 rounded-lg p-2">
                                     <div>
                                         <div className="relative h-[240px] mb-3 rounded-lg overflow-hidden">
-                                            <Image src={`/products/${item.image}.jpg`} layout="fill" alt="golf tshirt for sale" />
+                                            <Image src={`/products/${item.image}.jpg`} layout="fill" alt={item.name} />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-bold text-orange-500">{item.name}</h3>
+                                            {item.description &&
+                                                <p className="text-sm text-slate-800">{item.description}</p>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-2 items-center border-t border-orange-500 py-2 justify-between">
+                                        <h4 className="font-bold text-lg w-full"><span className="text-sm font-light">From{" "}</span>E {item.price}</h4>
+                                        <p className="italic text-xs text-slate-500">{item.price_for}</p>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className=" mb-5 flex items-center gap-5">
+                    <Image onClick={() => scrollLeft(products)} src='/prev.png' alt="scroll back" width={50} height={50} />
+                    <Image onClick={() => scrollRight(products)} src='/next.png' alt="scroll back" width={50} height={50} />
+                </div>
+                <div ref={branding} className="w-full flex gap-2 py-2 no-scrollbar overflow-x-auto ">
+                    {
+                        branding_list.map((item, key) => {
+                            return (
+                                <div key={key} className="min-w-[260px] flex flex-col justify-between gap-2 border border-orange-500 rounded-lg p-2">
+                                    <div>
+                                        <div className="relative h-[240px] mb-3 rounded-lg overflow-hidden">
+                                            <Image src={`/products/branding/${item.image}.jpg`} layout="fill" alt={item.name} />
                                         </div>
                                         <div>
                                             <h3 className="font-bold text-orange-500">{item.name}</h3>
@@ -128,8 +158,8 @@ export default function Home() {
                     }
                 </div>
                 <div className="flex items-center gap-5">
-                    <Image onClick={scrollLeft} src='/prev.png' alt="scroll back" width={50} height={50} />
-                    <Image onClick={scrollRight} src='/next.png' alt="scroll back" width={50} height={50} />
+                    <Image onClick={() => scrollLeft(branding)} src='/prev.png' alt="scroll back" width={50} height={50} />
+                    <Image onClick={() => scrollRight(branding)} src='/next.png' alt="scroll back" width={50} height={50} />
                 </div>
             </section>
             <div id="services" className=""></div>
@@ -274,6 +304,11 @@ export default function Home() {
                             <p>Matsapha Industrial Site</p>
                             <p>Matsapha, Eswatini</p>
                         </div>
+                        <div className="flex flex-col text-orange-500">
+                            <p className="">+268 2518 4084</p>
+                            <p className="">+268 7667 5259</p>
+                            <p className="">+268 7970 7070</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -283,8 +318,8 @@ export default function Home() {
                     <h3 className="text-3xl md:text-5xl uppercase font-bold">Contact Us</h3>
                     <p className="text-orange-500">We will get back to you ASAP!</p>
                 </div>
-                <div className="flex flex-col md:flex-row w-full gap-[5rem] items-center">
-                    <div className="w-full md:w-[50%] md:p-[3rem] rounded ">
+                <div className="flex flex-col md:flex-row w-full gap-[5rem] ">
+                    <div className="w-full md:w-[50%] md:px-[3rem] rounded ">
                         <form onSubmit={handleSubmit} className="max-w-[600px] flex flex-col text-start gap-4 ">
                             <div className="flex flex-col ">
                                 <label htmlFor="">Name</label>
@@ -333,10 +368,22 @@ export default function Home() {
                             <button type='submit' className="bg-orange-500 text-slate-100 p-3 rounded-md">Send Message</button>
                             {status && <p>{status}</p>}
                         </form>
+                        <div className="hidden md:block my-3 text-left">
+                            <h5 className="text-lg uppercase font-bold">Contact details</h5>
+                            <p className="">+268 2518 4084</p>
+                            <p className="">+268 7667 5259</p>
+                            <p className="">+268 7970 7070</p>
+                        </div>
                     </div>
-                    <div className="w-full md:w-[50%] flex justify-center h-full">
+                    <div className="w-full md:w-[50%] flex flex-col justify-center h-full">
                         <div className="bg-black h-[400px] w-full rounded-xl overflow-hidden relative">
                             <Image src='/printer.jpg' alt="Branding services" layout="fill" objectFit="cover" />
+                        </div>
+                        <div className="my-3 text-left md:hidden">
+                            <h5 className="text-lg uppercase font-bold">Contact details</h5>
+                            <p className="">+268 2518 4084</p>
+                            <p className="">+268 7667 5259</p>
+                            <p className="">+268 7970 7070</p>
                         </div>
                     </div>
                 </div>

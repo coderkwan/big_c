@@ -1,4 +1,4 @@
-const products_list = [
+export const products_list = [
     {
         name: "Round Neck and V-neck T-shirts",
         price: "35.00",
@@ -91,4 +91,149 @@ const products_list = [
         image: "lanyards"
     },
 ]
-export default products_list;
+
+export const branding_list = [
+    {
+        name: "Display Systems",
+        price: "125.00",
+        description: "Roll-up Banner stands, Sharkfin, Tear drop, Xbanner",
+        price_for: "Each",
+        image: "display_systems"
+    },
+    {
+        name: "Wind Spinners",
+        price: "1650.00",
+        description: "",
+        price_for: "Each",
+        image: "wind_spinners"
+    },
+    {
+        name: "Branded Stands",
+        price: "3000.00",
+        description: "With LED lights",
+        price_for: "Each",
+        image: "branded_stands"
+    },
+    {
+        name: "Color Vinyl",
+        price: "35.00",
+        description: "",
+        price_for: "Per Meter",
+        image: "color_vinyl"
+    },
+    {
+        name: "Printable Vinyl",
+        price: "55.00",
+        description: "",
+        price_for: "Per Meter",
+        image: "printable_vinyl"
+    },
+    {
+        name: "Frost/Sandblast",
+        price: "110.00",
+        description: "With LED lights",
+        price_for: "Per Meter",
+        image: "frost"
+    },
+
+    {
+        name: "Contra-Vision",
+        price: "65.00",
+        description: "",
+        price_for: "Per Meter",
+        image: "contra"
+    },
+    {
+        name: "Clear Vinyl",
+        price: "65.00",
+        description: "",
+        price_for: "Per Meter",
+        image: "clear_vinyl"
+    },
+    {
+        name: "PVC Banner",
+        price: "75.00",
+        description: "Back-to-Back",
+        price_for: "Per Meter",
+        image: "pvc_banner"
+    },
+    {
+        name: "LED Lights",
+        price: "8.00",
+        description: "",
+        price_for: "Each",
+        image: "led"
+    },
+    {
+        name: "Transformers",
+        price: "75.00",
+        description: "Back-to-Back",
+        price_for: "Per Meter",
+        image: "transformer"
+    },
+    {
+        name: "Promotional Materials",
+        price: "90.00",
+        description: "Diaries, Notebooks, Pens etc...",
+        price_for: "Each",
+        image: "promotional"
+    },
+    {
+        name: "DTF Printing",
+        price: "65.00",
+        description: "",
+        price_for: "Per A3",
+        image: "dtf"
+    },
+    {
+        name: "Vinyl Printing",
+        price: "180.00",
+        description: "",
+        price_for: "Per SQM",
+        image: "vinyl"
+    },
+    {
+        name: "UV Printing",
+        price: "95.00",
+        description: "",
+        price_for: "Per A3",
+        image: "uv_printing"
+    },
+    {
+        name: "Cloth Banners",
+        price: "120.00",
+        description: "",
+        price_for: "Per SQM",
+        image: "cloth_banner"
+    },
+    {
+        name: "3D Signage",
+        price: "00.00",
+        description: "Request Quote",
+        price_for: "N/A",
+        image: "3d"
+    },
+    {
+        name: "Chromodek Sheets",
+        price: "565.00",
+        description: "",
+        price_for: "Each",
+        image: "chromodek"
+    },
+    {
+        name: "Perspex Sheets",
+        price: "535.00",
+        description: "Basic colors opal, black and clear. We do special orders.",
+        price_for: "Each",
+        image: "perspex"
+    },
+    {
+        name: "ACM Sheets",
+        price: "1800.00",
+        description: "",
+        price_for: "each",
+        image: "acm"
+    },
+]
+
+

@@ -4,7 +4,7 @@ import Image from "next/image"
 export default function Footer() {
     return (
         <div className="bg-orange-500 text-slate-100 py-[4rem] flex flex-col items-center">
-            <div className="mx-auto w-full max-w-[1400px] border-b border-slate-800 pb-[2rem] flex flex-col md:flex-row items-center text-center md:text-left gap-[3rem] justify-between ">
+            <div className="mx-auto w-full max-w-[1400px] border-b border-slate-800 pb-[2rem] flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-[3rem] justify-between ">
                 <Link href="/#">
                     <Image src='/biglogo.png' alt="big c printworks logo" width={200} height={100} />
                 </Link>
@@ -25,7 +25,13 @@ export default function Footer() {
                         <p>Matsapha Industrial Site</p>
                         <p>Matsapha, Eswatini</p>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-col">
+                        <h3 className="text-lg font-bold mb-2">Contact details</h3>
+                        <p className="">+268 2518 4084</p>
+                        <p className="">+268 7667 5259</p>
+                        <p className="">+268 7970 7070</p>
+                    </div>
+                    <div className="flex items-center justify-center gap-4">
                         <Link href="https://wa.me/26879707070" className="bg-white p-2 rounded-full">
                             <Image src='/wp_.png' alt="whatsapp" width={30} height={30} />
                         </Link>
