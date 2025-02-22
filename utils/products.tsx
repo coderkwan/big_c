@@ -234,6 +234,29 @@ export const branding_list = [
         price_for: "each",
         image: "acm"
     },
+
+    {
+        name: "ABS, Corex, Foam Board",
+        price: "0.00",
+        description: "Request Quote",
+        price_for: "N/A",
+        image: "corex"
+    },
+    {
+        name: "Sublimation Mugs",
+        price: "0.00",
+        description: "",
+        price_for: "each",
+        image: "mugs"
+    },
+
+    {
+        name: "Pylons",
+        price: "0.00",
+        description: "Request Quote",
+        price_for: "N/A",
+        image: "pylon"
+    },
 ]
 
 

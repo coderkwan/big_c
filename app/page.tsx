@@ -168,7 +168,7 @@ export default function Home() {
                     }
                 </div>
                 <div className="flex items-center gap-5">
-                    <Image onClick={ scrollLeft2} src='/prev.png' alt="scroll back" width={50} height={50} />
+                    <Image onClick={scrollLeft2} src='/prev.png' alt="scroll back" width={50} height={50} />
                     <Image onClick={scrollRight2} src='/next.png' alt="scroll back" width={50} height={50} />
                 </div>
             </section>
