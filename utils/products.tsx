@@ -244,7 +244,7 @@ export const branding_list = [
     },
     {
         name: "Sublimation Mugs",
-        price: "0.00",
+        price: "35.00",
         description: "",
         price_for: "each",
         image: "mugs"

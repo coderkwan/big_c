@@ -37,7 +37,7 @@ export default function Nav() {
                         height={40}
                     />
                 </Link>
-                <div className="gap-10 hidden md:flex items-center">
+                <div className="gap-10 hidden md:flex items-center text-slate-200">
                     <Link href="/#products">Products</Link>
                     <Link href="/#services">Services</Link>
                     <Link href="/#why">Why Us</Link>
