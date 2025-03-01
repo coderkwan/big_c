@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <div className="bg-orange-500 text-slate-100 py-[4rem] flex flex-col items-center">
             <div className="mx-auto w-full max-w-[1400px] border-b border-slate-800 pb-[2rem] flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-[3rem] justify-between ">
-                <Link href="/#">
+                <Link href="/#" className="rounded-xl overflow-hidden">
                     <Image src='/biglogo.png' alt="big c printworks logo" width={200} height={100} />
                 </Link>
                 <div className="flex flex-col gap-4">
@@ -18,17 +18,19 @@ export default function Footer() {
                         <Link href="/#contact">Contact Us</Link>
                     </div>
                 </div>
-                <div className="flex flex-col gap-4">
+                <div>
                     <h3 className="text-lg font-bold">Address</h3>
                     <div className="flex flex-col">
                         <p>Opposite Infracast</p>
                         <p>Matsapha Industrial Site</p>
                         <p>Matsapha, Eswatini</p>
                     </div>
+                </div>
+                <div className="flex flex-col gap-4">
                     <div className="flex flex-col">
                         <h3 className="text-lg font-bold mb-2">Contact details</h3>
                         <p className="">+268 2518 4084</p>
-                        <p className="">+268 7667 5259</p>
+                        <p className="">+268 7866 9051</p>
                         <p className="">+268 7970 7070</p>
                     </div>
                     <div className="flex items-center justify-center gap-4">

@@ -1,96 +1,18 @@
-"use client";
-
-import {useEffect, useRef, useState} from "react";
 import Image from "next/image";
-import TitleOne from "../components/TitleOne"
 import Link from "next/link";
-import TitleTwo from "../components/TitleTwo"
-import TitleThree from "../components/TitleThree"
-import TitleFour from "../components/TitleFour"
 import {products_list, branding_list} from "@/utils/products";
+import Contact from "@/components/contact";
+import HeroWords from "@/components/HeroWords";
+import {ScrollOne, ScrollTwo} from "@/components/Scrolls";
 
 export default function Home() {
-    const titles = [
-        <TitleOne key={0} />,
-        <TitleTwo key={1} />,
-        <TitleThree key={2} />,
-        <TitleFour key={3} />,
-    ];
-
-    const [count, setCount] = useState(0);
-    const [status, setStatus] = useState("");
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [message, setMessage] = useState("")
-    const [phone, setPhone] = useState("")
-    const products = useRef<HTMLDivElement | null>(null)
-    const branding = useRef<HTMLDivElement | null>(null)
-    const pos = 150
-
-    function scrollLeft() {
-        if (products.current != null) {
-            products.current.scrollBy({left: 0 - pos, behavior: 'smooth'})
-        }
-    }
-    function scrollLeft2() {
-        if (branding.current != null) {
-            branding.current.scrollBy({left: 0 - pos, behavior: 'smooth'})
-        }
-    }
-
-    function scrollRight2() {
-        if (branding.current != null) {
-            branding.current.scrollBy({left: pos, behavior: 'smooth'})
-        }
-    }
-    function scrollRight() {
-        if (products.current != null) {
-            products.current.scrollBy({left: pos, behavior: 'smooth'})
-        }
-    }
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setStatus('Sending email...');
-        const emailData = {name, email, phone, message}
-
-        try {
-            const res = await fetch('/api/Sendmail', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(emailData),
-            });
-
-            const result = await res.json();
-            if (res.ok) {
-                setStatus('Email sent successfully!');
-            } else {
-                setStatus(`Error: ${result.message}`);
-            }
-        } catch (e) {
-            console.log(e)
-            setStatus('Failed to send email.');
-        }
-    };
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCount((count) => (count + 1) % titles.length);
-        }, 6000);
-
-        return () => {
-            clearInterval(interval);
-        };
-    }, [titles.length]);
 
     return (
         <main className="px-2 flex flex-col gap-[5rem] mb-[10rem]">
             <section className="bg-[url(/bg2.JPG)] bg-cover overflow-hidden w-full max-w-[1400px] mx-auto rounded-3xl">
                 <div className="bg-black/85 flex flex-col md:flex-row px-[2rem] py-[5rem] gap-[4rem justify-between items-center">
                     <div className="flex flex-col md:text-center items-center gap-4 mx-auto max-w-[1000px]">
-                        <h1 className="text-3xl md:text-6xl text-white font-bold uppercase">{titles[count]}</h1>
+                        <HeroWords />
                         <p className="text-sm md:text-[18px] leading-[25px] text-slate-300">
                             Big C Printworks specializas in signage printing and fabrication, stockiest
                             of signage material, Work wear, Corporate wear, Security Uniforms,
@@ -113,7 +35,7 @@ export default function Home() {
                     <h2 className="text-3xl md:text-5xl font-bold uppercase mb-3">Our Products</h2>
                     <p className="text-sm md:text-xl text-slate-600">Big C Printworks supply and delivers high-quality products.</p>
                 </div>
-                <div ref={products} className="w-full flex gap-2 py-2 no-scrollbar overflow-x-auto ">
+                <div id="product_list" className="w-full flex gap-2 py-2 no-scrollbar overflow-x-auto ">
                     {
                         products_list.map((item, key) => {
                             return (
@@ -138,11 +60,8 @@ export default function Home() {
                         })
                     }
                 </div>
-                <div className=" mb-5 flex items-center gap-5">
-                    <Image onClick={scrollLeft} src='/prev.png' alt="scroll back" width={50} height={50} />
-                    <Image onClick={scrollRight} src='/next.png' alt="scroll back" width={50} height={50} />
-                </div>
-                <div ref={branding} className="w-full flex gap-2 py-2 no-scrollbar overflow-x-auto ">
+                <ScrollOne />
+                <div id="branding" className="w-full flex gap-2 py-2 no-scrollbar overflow-x-auto ">
                     {
                         branding_list.map((item, key) => {
                             return (
@@ -167,10 +86,7 @@ export default function Home() {
                         })
                     }
                 </div>
-                <div className="flex items-center gap-5">
-                    <Image onClick={scrollLeft2} src='/prev.png' alt="scroll back" width={50} height={50} />
-                    <Image onClick={scrollRight2} src='/next.png' alt="scroll back" width={50} height={50} />
-                </div>
+                <ScrollTwo />
             </section>
             <div id="services" className=""></div>
             <section className="w-full max-w-[1400px] mx-auto flex flex-col px-[1rem] items-center">
@@ -316,7 +232,7 @@ export default function Home() {
                         </div>
                         <div className="flex flex-col text-orange-500">
                             <p className="">+268 2518 4084</p>
-                            <p className="">+268 7667 5259</p>
+                            <p className="">+268 7866 9051</p>
                             <p className="">+268 7970 7070</p>
                         </div>
                     </div>
@@ -330,58 +246,11 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col md:flex-row w-full gap-[5rem] ">
                     <div className="w-full md:w-[50%] md:px-[3rem] rounded ">
-                        <form onSubmit={handleSubmit} className="max-w-[600px] flex flex-col text-start gap-4 ">
-                            <div className="flex flex-col ">
-                                <label htmlFor="">Name</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    required={true}
-                                    className=" p-3 border bg-slate-800 border-slate-500 rounded-md"
-                                />
-                            </div>
-                            <div className="flex flex-col ">
-                                <label htmlFor="">Phone</label>
-                                <input
-                                    type="text"
-                                    name="phone"
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
-                                    required={true}
-                                    className=" p-3 border border-slate-500 bg-slate-800 rounded-md"
-                                />
-                            </div>
-                            <div className="flex flex-col ">
-                                <label htmlFor="">Email</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required={true}
-                                    className=" p-3 border border-slate-500 bg-slate-800 rounded-md"
-                                />
-                            </div>
-                            <div className="flex flex-col gap">
-                                <label htmlFor="">message</label>
-                                <textarea
-                                    className=" p-3 border border-slate-500 bg-slate-800 rounded-md"
-                                    name="message"
-                                    value={message}
-                                    onChange={(e) => setMessage(e.target.value)}
-                                    required={true}
-                                    id=""
-                                ></textarea>
-                            </div>
-                            <button type='submit' className="bg-orange-500 text-slate-100 p-3 rounded-md">Send Message</button>
-                            {status && <p>{status}</p>}
-                        </form>
+                        <Contact />
                         <div className="hidden md:block my-3 text-left">
                             <h5 className="text-lg uppercase font-bold">Contact details</h5>
                             <p className="">+268 2518 4084</p>
-                            <p className="">+268 7667 5259</p>
+                            <p className="">+268 7866 9051</p>
                             <p className="">+268 7970 7070</p>
                         </div>
                     </div>
@@ -392,7 +261,7 @@ export default function Home() {
                         <div className="my-3 text-left md:hidden">
                             <h5 className="text-lg uppercase font-bold">Contact details</h5>
                             <p className="">+268 2518 4084</p>
-                            <p className="">+268 7667 5259</p>
+                            <p className="">+268 7866 9051</p>
                             <p className="">+268 7970 7070</p>
                         </div>
                     </div>

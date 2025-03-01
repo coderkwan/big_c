@@ -23,7 +23,7 @@ export const products_list = [
     {
         name: "Safety Boots",
         price: "150.00",
-        description: "Variety of safety kboots",
+        description: "Variety of safety boots",
         price_for: "Each",
         image: "safety_boots"
     },
