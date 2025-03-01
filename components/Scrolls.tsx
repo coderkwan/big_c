@@ -1,9 +1,10 @@
 "use client"
 import Image from "next/image"
+import {useEffect, useState} from "react"
 
 export function ScrollOne() {
     const pos = 150
-    const products = document.getElementById('product_list')
+    const [products, setProducts] = useState<HTMLElement | null>(null)
 
     function scrollLeft() {
         if (products != null) {
@@ -18,6 +19,9 @@ export function ScrollOne() {
             products.scrollBy({left: pos, behavior: 'smooth'})
         }
     }
+    useEffect(() => {
+        setProducts(document.getElementById('product_list'))
+    }, [])
 
     return (
         <div className=" mb-5 flex items-center gap-5">
@@ -31,7 +35,7 @@ export function ScrollOne() {
 
 export function ScrollTwo() {
     const pos = 150
-    const branding = document.getElementById('branding')
+    const [branding, setBranding] = useState<HTMLElement | null>(null)
 
     function scrollLeft2() {
         if (branding != null) {
@@ -44,6 +48,9 @@ export function ScrollTwo() {
             branding.scrollBy({left: pos, behavior: 'smooth'})
         }
     }
+    useEffect(() => {
+        setBranding(document.getElementById("branding"))
+    }, [])
 
     return (
         <div className="flex items-center gap-5">
